@@ -1,0 +1,27 @@
+For this Assignment, I developed a Weather Application that utilizes the OpenWeather API to gather current weather data and a 5-day forecast for a specified city.
+
+ I designed the application to include a chatbot capable of responding to predefined weather-related questions. 
+This adds an interactive element that enhances user experience.
+
+ I also incorporated filtering functionalities that allow users to access specific weather data, such as identifying the hottest day or filtering for rainy days, as well as sorting temperature lists.
+
+To break down the project into manageable steps, I started with API integration,
+ where I connected the OpenWeather API to fetch both current weather data and a 5-day forecast. Once the data was accessible, 
+I implemented dynamic data display so that details like the city name, temperature, humidity, and wind speed could update on the webpage in real time. 
+Next, I added the chatbot, which I programmed to recognize common weather-related intents—like "What is the weather today?" and "Hottest Day?"—while also rejecting unrelated queries, such as sports questions.
+
+I ensured that the application fetches the 5-day forecast and displays it in a user-friendly grid format. 
+
+
+
+To enhance user experience further, I included error handling to manage situations like invalid city names or API request failures. 
+Additionally, I optimized API calls to prevent unnecessary requests when the input remains unchanged. For the filtering functions, 
+I implemented features to find the hottest day, filter out rainy days, and sort temperatures in both ascending and descending order.
+
+Overall, the chatbot recognizes a variety of predefined intents related to weather, including queries about rain, humidity, and temperature. 
+This project not only honed my programming skills but also deepened my understanding of how to create user-friendly applications that respond to real-world needs
+
+we will run the index.html file to run this project. linking has alrwady  been done. linking to open weather Api Api has Already been done by me.
+
+intents for chat bot have also been added in chatbot code - pre defined as guided on GCR
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Tables</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Weather App</h2>
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="#" class="active">Tables</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Enter city name" />
+                <button id="get-weather-btn">Get Weather</button>
+            </div>
+            <div class="user-profile">
+                <img src="img1.jpg" alt="User Profile" class="profile-icon">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="table-section">
+                <h3>Weather Data Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Weather</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="chatbot-section">
+                <div class="chat-window">
+                    <h3>Weather Bot</h3>
+                    <div id="chat-output"></div>
+                    <input type="text" id="chat-input" placeholder="Ask Details on weather" />
+                    <button id="send-chat-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

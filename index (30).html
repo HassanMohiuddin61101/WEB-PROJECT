@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Weather App</h2>
+        <nav>
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="tables.html">Tables</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Enter city name" />
+                <button id="get-weather-btn">Get Weather</button>
+            </div>
+            <div class="user-profile">
+                <img src="img1.jpg" alt="User Profile" class="profile-icon">
+            </div>
+        </header>
+
+        <div id="weather-data">
+            <h3>Weather Data for <span id="city-name"></span></h3>
+            <p>Temperature: <span id="temperature"></span>°C</p>
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Weather: <span id="weather-desc"></span></p>
+        </div>
+
+        <div class="charts">
+            <div class="chart-box">
+                <h4>Vertical Bar Chart</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h4>Doughnut Chart</h4>
+                <canvas id="doughnutChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h4>Line Chart</h4>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="chart-config.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#get-weather-btn').click(function() {
+                var city = $('#city-input').val();
+                var apiKey = 'b4636d5eabfd0611c27593da73c9e4df';
+
+                $.ajax({
+                    url: `https://api.openweathermap.org/data/2.5/weather`,
+                    type: 'GET',
+                    data: {
+                        q: city,
+                        appid: apiKey,
+                        units: 'metric'
+                    },
+                    success: function(response) {
+                        $('#city-name').text(response.name);
+                        $('#temperature').text(response.main.temp);
+                        $('#humidity').text(response.main.humidity);
+                        $('#weather-desc').text(response.weather[0].description);
+
+                        if (response.weather[0].main === 'Clear') {
+                            $('#weather-data').css('background-color', '#ffeb3b');
+                        } else if (response.weather[0].main === 'Clouds') {
+                            $('#weather-data').css('background-color', '#9e9e9e');
+                        } else if (response.weather[0].main === 'Rain') {
+                            $('#weather-data').css('background-color', '#03a9f4');
+                        } else {
+                            $('#weather-data').css('background-color', '#cfd8dc');
+                        }
+                    },
+                    error: function() {
+                        alert('Error: Unable to fetch weather data. Please check the city name and try again.');
+                        $('#city-name').text('');
+                        $('#temperature').text('');
+                        $('#humidity').text('');
+                        $('#weather-desc').text('');
+                        $('#weather-data').css('background-color', '#f0f0f0');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
